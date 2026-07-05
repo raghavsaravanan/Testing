@@ -1,0 +1,16 @@
+name: Agent Trigger
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  announce:
+    if: github.event.label.name == 'agent-fix-this'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show the issue that triggered this
+        run: |
+          echo "Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
+          echo "Body:"
+          echo "${{ github.event.issue.body }}"

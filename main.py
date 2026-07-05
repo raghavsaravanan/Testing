@@ -3,7 +3,7 @@ def count_positive(numbers):
     count = 0
 
     # BUG: Off-by-one error; skips the last element.
-    for i in range(len(numbers) - 1):
+    for i in range(len(numbers)):  # Corrected: iterate over all indices
         if numbers[i] > 0:
             count += 1
 
@@ -17,5 +17,3 @@ def test_count_positive():
 
 if __name__ == "__main__":
     test_count_positive()
-
-    
